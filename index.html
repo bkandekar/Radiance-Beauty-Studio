@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radiance Beauty Studio | Beauty Parlour & Salon in Ratnagiri</title>
+    <meta name="description" content="Radiance Beauty Studio - Premium beauty parlour in Ratnagiri. HD Bridal Makeup, Organic Facials, Hair Spa, Waxing & Nail Art by VLCC certified experts. Estimate your package cost online!">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- STICKY HEADER -->
+    <header class="sticky-header">
+        <div class="container header-container">
+            <a href="#hero" class="logo">
+                <span class="logo-title">Radiance Beauty Studio</span>
+                <span class="logo-tagline">Where Every Look Feels Like You</span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#estimator" class="nav-link">Cost Estimator</a>
+                <a href="#pain-points" class="nav-link">Why Us</a>
+                <a href="#testimonials" class="nav-link">Reviews</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#footer" class="nav-link">Contact</a>
+            </nav>
+
+            <button class="btn btn-primary pulse-btn" id="headerBookBtn" onclick="openBookingModal()">Book Appointment</button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (Split Contrast Layout) -->
+    <section id="hero" class="hero-section">
+        <div class="container hero-container">
+            <!-- Left Color Block (Deep Plum) -->
+            <div class="hero-content-block">
+                <div class="trust-chip">
+                    <span class="badge-icon">✓</span> Certified VLCC Institute Beauty Studio • Ratnagiri
+                </div>
+                <h1 class="hero-title">Look and Feel Your Best — Every Time You Visit</h1>
+                <p class="hero-subtitle">Ratnagiri's premier destination for HD Bridal Makeup, Herbal Facials & Deep Hair Spa. Experience hygienic, 100% authentic care with completely transparent pricing.</p>
+                
+                <div class="hero-cta-group">
+                    <button class="btn btn-primary" onclick="openBookingModal()">Book Appointment</button>
+                    <a href="#estimator" class="btn btn-secondary">Estimate Package Cost</a>
+                </div>
+
+                <div class="hero-stats-badges">
+                    <div class="stat-badge">
+                        <span class="stat-num">6+</span>
+                        <span class="stat-lbl">Years Exp</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-num">2,000+</span>
+                        <span class="stat-lbl">Clients Served</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-num">100%</span>
+                        <span class="stat-lbl">VLCC Certified</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Image Placeholder -->
+            <div class="hero-image-block">
+                <div class="img-placeholder hero-img-placeholder" data-placeholder-id="hero-image">
+                    <div class="placeholder-content">
+                        <span class="placeholder-icon">✨</span>
+                        <p class="placeholder-text">[PLACEHOLDER: Hero Image — client relaxing during a facial at salon, Google Drawings 1200x1400px]</p>
+                        <span class="placeholder-tag">Radiance Studio Salon • Shivaji Chowk</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAIN POINTS -> SOLUTIONS SECTION -->
+    <section id="pain-points" class="section-padding pain-points-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tagline">WHY CLIENTS CHOOSE US</span>
+                <h2 class="section-title">Common Parlour Doubts — Solved</h2>
+            </div>
+
+            <div class="pain-points-grid">
+                <div class="pain-point-card card">
+                    <div class="pain-box">
+                        <span class="icon-danger">❌</span>
+                        <p class="pain-text">"I never know what a service will actually cost until I'm billed."</p>
+                    </div>
+                    <div class="solution-box">
+                        <span class="icon-success">✓</span>
+                        <p class="solution-text"><strong>Transparent Instant Estimator:</strong> Calculate exact package costs on our app with zero hidden charges.</p>
+                    </div>
+                </div>
+
+                <div class="pain-point-card card">
+                    <div class="pain-box">
+                        <span class="icon-danger">❌</span>
+                        <p class="pain-text">"I'm not sure if products used are safe or hygienic for my skin/hair."</p>
+                    </div>
+                    <div class="solution-box">
+                        <span class="icon-success">✓</span>
+                        <p class="solution-text"><strong>100% Authentic Brands:</strong> Sealed L'Oreal, O3+ & Matrix products with disinfected toolkits.</p>
+                    </div>
+                </div>
+
+                <div class="pain-point-card card">
+                    <div class="pain-box">
+                        <span class="icon-danger">❌</span>
+                        <p class="pain-text">"Bridal makeup is a big decision — I need to see real local work first."</p>
+                    </div>
+                    <div class="solution-box">
+                        <span class="icon-success">✓</span>
+                        <p class="solution-text"><strong>Real Ratnagiri Bride Portfolio:</strong> Explore 50+ real client photos and video trial transformations.</p>
+                    </div>
+                </div>
+
+                <div class="pain-point-card card">
+                    <div class="pain-box">
+                        <span class="icon-danger">❌</span>
+                        <p class="pain-text">"I don't have time to wait around endlessly at a crowded parlour."</p>
+                    </div>
+                    <div class="solution-box">
+                        <span class="icon-success">✓</span>
+                        <p class="solution-text"><strong>Slot-Based Booking:</strong> Reserved appointment time slot guaranteeing zero waiting time.</p>
+                    </div>
+                </div>
+
+                <div class="pain-point-card card">
+                    <div class="pain-box">
+                        <span class="icon-danger">❌</span>
+                        <p class="pain-text">"I want a stylist who understands modern aesthetic trends & skin types."</p>
+                    </div>
+                    <div class="solution-box">
+                        <span class="icon-success">✓</span>
+                        <p class="solution-text"><strong>VLCC Certified Master Stylist:</strong> Sneha Patil & team receive annual technique upgrades.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE & PACKAGE COST ESTIMATOR (Core Standout Feature) -->
+    <section id="estimator" class="section-padding estimator-section">
+        <div class="container">
+            <div class="estimator-card">
+                <div class="estimator-header">
+                    <span class="badge-gold">Interactive Tool</span>
+                    <h2>Instant Service & Package Cost Estimator</h2>
+                    <p>Select your category, service, and package tier to view an instant transparent estimate.</p>
+                </div>
+
+                <div class="estimator-body">
+                    <!-- Step 1: Category Selection -->
+                    <div class="form-group">
+                        <label class="form-label">1. Select Service Category:</label>
+                        <div class="category-pills" id="estimatorCategoryPills">
+                            <button type="button" class="pill-btn active" data-category="hair">Hair Care</button>
+                            <button type="button" class="pill-btn" data-category="skin">Skin & Facials</button>
+                            <button type="button" class="pill-btn" data-category="bridal">Bridal & Party</button>
+                            <button type="button" class="pill-btn" data-category="nails">Nails</button>
+                            <button type="button" class="pill-btn" data-category="waxing">Threading & Waxing</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Specific Service Dropdown -->
+                    <div class="form-group">
+                        <label for="estimatorServiceSelect" class="form-label">2. Select Specific Service:</label>
+                        <select id="estimatorServiceSelect" class="form-control">
+                            <!-- Populated dynamically by script.js -->
+                        </select>
+                    </div>
+
+                    <!-- Step 3: Package Tier Selection -->
+                    <div class="form-group">
+                        <label class="form-label">3. Choose Package Tier:</label>
+                        <div class="tier-grid">
+                            <label class="tier-card card">
+                                <input type="radio" name="packageTier" value="basic" class="tier-radio">
+                                <div class="tier-content">
+                                    <span class="tier-name">Basic Care</span>
+                                    <p class="tier-desc">Standard service with essential care products</p>
+                                </div>
+                            </label>
+                            
+                            <label class="tier-card card">
+                                <input type="radio" name="packageTier" value="deluxe" class="tier-radio" checked>
+                                <div class="tier-content">
+                                    <span class="tier-name">Deluxe Glow</span>
+                                    <p class="tier-desc">Upgraded premium products & ampoule massage</p>
+                                </div>
+                            </label>
+
+                            <label class="tier-card card">
+                                <input type="radio" name="packageTier" value="premium" class="tier-radio">
+                                <div class="tier-content">
+                                    <span class="tier-name">Luxury Royal</span>
+                                    <p class="tier-desc">VIP spa therapy + complimentary scalp/LED treat</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Add-ons Checkboxes -->
+                    <div class="form-group">
+                        <label class="form-label">4. Optional Add-ons:</label>
+                        <div class="addons-list" id="estimatorAddonsList">
+                            <!-- Populated dynamically by script.js -->
+                        </div>
+                    </div>
+
+                    <!-- Display Output Box -->
+                    <div class="estimator-result-box">
+                        <span class="result-label">ESTIMATED PACKAGE COST</span>
+                        <div class="result-price" id="estimatorPriceDisplay">₹800 – ₹1,050</div>
+                        <p class="result-note">*Final price confirmed after in-person consultation.</p>
+
+                        <button class="btn btn-gold btn-block" id="bookEstimatedPkgBtn" onclick="bookCurrentEstimate()">Book This Package</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION (Tab-based Switcher) -->
+    <!-- Populated by renderServices() in script.js — edit content in the SERVICES_DATA array, not here -->
+    <section id="services" class="section-padding services-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">OUR SIGNATURE SERVICES</span>
+                <h2 class="section-title">Crafted for Radiance & Comfort</h2>
+                <p class="section-desc">Click a category tab below to view services and transparent starting prices.</p>
+            </div>
+
+            <!-- Tabs Navigation -->
+            <div class="services-tabs" id="servicesTabs">
+                <button type="button" class="tab-btn active" data-tab="hair">Hair Care</button>
+                <button type="button" class="tab-btn" data-tab="skin">Skin & Facials</button>
+                <button type="button" class="tab-btn" data-tab="bridal">Bridal & Party</button>
+                <button type="button" class="tab-btn" data-tab="nails">Nails</button>
+                <button type="button" class="tab-btn" data-tab="waxing">Threading & Waxing</button>
+            </div>
+
+            <!-- Service Cards Container -->
+            <div class="services-cards-grid" id="servicesGrid">
+                <!-- Dynamically populated by renderServices() in script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US / STATS COUNTER BAR -->
+    <section class="stats-section">
+        <div class="container stats-container">
+            <div class="stat-item">
+                <span class="stat-number" data-target="6">0</span><span class="stat-plus">+</span>
+                <span class="stat-label">Years in Business</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="2000">0</span><span class="stat-plus">+</span>
+                <span class="stat-label">Clients Served</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-text">VLCC</span>
+                <span class="stat-label">Certified Staff</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-text">4.9★</span>
+                <span class="stat-label">Google Rating</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS / HOW IT WORKS SECTION -->
+    <section id="process" class="section-padding process-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">HOW IT WORKS</span>
+                <h2 class="section-title">4 Steps to Your Radiant Look</h2>
+            </div>
+
+            <div class="process-steps-grid">
+                <div class="process-step card">
+                    <div class="step-num">1</div>
+                    <h3 class="step-title">Easy Online Booking</h3>
+                    <p class="step-desc">Select services or use our estimator to reserve a guaranteed slot via WhatsApp.</p>
+                </div>
+
+                <div class="process-step card">
+                    <div class="step-num">2</div>
+                    <h3 class="step-title">Personal Consultation</h3>
+                    <p class="step-desc">Upon arrival, our VLCC-certified experts analyze your skin/hair type to customize products.</p>
+                </div>
+
+                <div class="process-step card">
+                    <div class="step-num">3</div>
+                    <h3 class="step-title">Pampering & Service</h3>
+                    <p class="step-desc">Relax in our hygienic studio while receiving expert care with authentic products.</p>
+                </div>
+
+                <div class="process-step card">
+                    <div class="step-num">4</div>
+                    <h3 class="step-title">Aftercare & Glow Tips</h3>
+                    <p class="step-desc">Leave with a flawless look plus customized home-care beauty routines for lasting radiance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS / REVIEWS SECTION -->
+    <!-- Populated by renderTestimonials() in script.js — edit content in the TESTIMONIALS_DATA array -->
+    <section id="testimonials" class="section-padding testimonials-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">REAL RATNAGIRI REVIEWS</span>
+                <h2 class="section-title">Loved by 2,000+ Happy Women</h2>
+            </div>
+
+            <div class="testimonials-grid" id="testimonialsGrid">
+                <!-- Dynamically populated by renderTestimonials() in script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="section-padding gallery-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tagline">PORTFOLIO & LOOKBOOK</span>
+                <h2 class="section-title">Real Transformations in Studio</h2>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Dynamically populated by renderGallery() in script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA BANNER -->
+    <section class="final-cta-section">
+        <div class="container text-center">
+            <h2 class="cta-heading">Ready to Experience True Radiance?</h2>
+            <p class="cta-subheading">Book your appointment online today or call Sneha Patil directly at 9876543210.</p>
+            <button class="btn btn-gold btn-lg pulse-btn" onclick="openBookingModal()">Book Your Appointment Today</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3 class="footer-title">Radiance Beauty Studio</h3>
+                <p class="footer-tagline">Where Every Look Feels Like You</p>
+                <p class="footer-owner">Owner: Sneha Patil (VLCC Certified)</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Details</h4>
+                <!-- BUSINESS CONTACT — must match BUSINESS_CONFIG in script.js -->
+                <p>📍 Shop No. 4, Shivaji Chowk, Ratnagiri, Maharashtra 415612</p>
+                <!-- BUSINESS CONTACT — must match BUSINESS_CONFIG in script.js -->
+                <p>📞 Phone: <a href="tel:9876543210">9876543210</a></p>
+                <!-- BUSINESS CONTACT — must match BUSINESS_CONFIG in script.js -->
+                <p>💬 WhatsApp: <a href="https://wa.me/919876543210">919876543210</a></p>
+                <p>✉️ Email: <a href="mailto:radiancebeautystudio@gmail.com">radiancebeautystudio@gmail.com</a></p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Service Area</h4>
+                <p>Ratnagiri city and nearby areas (Nachane, Zadgaon, Kasarveli)</p>
+                <div class="footer-social-links">
+                    <a href="https://instagram.com/radiancebeautystudio_rtn" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://maps.google.com/?q=Shop+No.+4,+Shivaji+Chowk,+Ratnagiri,+Maharashtra+415612" target="_blank" rel="noopener">Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-credit">
+            <div class="container text-center">
+                <p>Website by ebookcharm Web Services</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOOK APPOINTMENT MODAL -->
+    <div id="bookingModal" class="modal-overlay" onclick="handleModalOverlayClick(event)">
+        <div class="modal-card card">
+            <div class="modal-header">
+                <h3>Book Appointment</h3>
+                <button type="button" class="close-modal-btn" onclick="closeBookingModal()">&times;</button>
+            </div>
+
+            <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+                <div class="form-group">
+                    <label for="modalFullName" class="form-label">Full Name *</label>
+                    <input type="text" id="modalFullName" class="form-control" placeholder="Enter your full name" required>
+                    <span class="error-msg" id="nameError">Full name is required.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="modalPhone" class="form-label">Phone Number *</label>
+                    <input type="tel" id="modalPhone" class="form-control" placeholder="Enter 10-digit mobile number" required>
+                    <span class="error-msg" id="phoneError">Valid 10-digit phone number is required.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="modalService" class="form-label">Preferred Service / Estimated Package</label>
+                    <input type="text" id="modalService" class="form-control" placeholder="e.g. Gold Facial / HD Bridal Package">
+                </div>
+
+                <div class="form-group">
+                    <label for="modalDate" class="form-label">Preferred Date</label>
+                    <input type="date" id="modalDate" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="modalTime" class="form-label">Preferred Time Slot</label>
+                    <select id="modalTime" class="form-control">
+                        <option value="Morning (10:00 AM - 1:00 PM)">Morning (10:00 AM - 1:00 PM)</option>
+                        <option value="Afternoon (1:00 PM - 4:00 PM)">Afternoon (1:00 PM - 4:00 PM)</option>
+                        <option value="Evening (4:00 PM - 7:00 PM)">Evening (4:00 PM - 7:00 PM)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="modalNotes" class="form-label">Additional Notes (Optional)</label>
+                    <textarea id="modalNotes" class="form-control" rows="2" placeholder="Any skin sensitivity or specific preferences..."></textarea>
+                </div>
+
+                <div class="modal-status" id="modalRedirectStatus">Redirecting you to WhatsApp...</div>
+
+                <button type="submit" class="btn btn-primary btn-block">Book Now via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

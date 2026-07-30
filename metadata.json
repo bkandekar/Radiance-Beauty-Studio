@@ -1,0 +1,6 @@
+{
+  "name": "Radiance Beauty Studio",
+  "description": "Radiance Beauty Studio - Premium Beauty Parlour & Salon in Ratnagiri. Interactive Package Estimator, Service Catalogue, Reviews & Direct WhatsApp Booking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
