@@ -17,6 +17,14 @@ const BUSINESS_CONFIG = {
  * ==========================================================================
  */
 
+const CATEGORY_LABELS = {
+  hair: 'Hair Care',
+  skin: 'Skin & Facials',
+  bridal: 'Bridal & Party',
+  nails: 'Nails',
+  waxing: 'Threading & Waxing'
+};
+
 const SERVICES_DATA = [
   // HAIR CARE
   { id: 'h1', category: 'hair', name: 'Hydrating Hair Spa', price: 650, duration: 45, isPopular: true, desc: 'Deep nourishment treatment with intense steam & scalp massage.' },
@@ -82,11 +90,15 @@ const TESTIMONIALS_DATA = [
   }
 ];
 
+/* GALLERY_DATA — 6 items. Each renders an <img src="images/gallery-<id>.jpg">
+   Drop your Google Drawings export into /images/ using the exact filename shown below. */
 const GALLERY_DATA = [
   { id: 'g1', title: 'HD Bridal Makeup Look', category: 'Bridal', desc: 'Flawless water-resistant HD bridal makeover' },
   { id: 'g2', title: 'Keratin Smooth Transformation', category: 'Hair', desc: 'Silky frizz-free hair transformation' },
   { id: 'g3', title: 'O3+ Facial Radiance', category: 'Skin', desc: 'Instant luminous bridal glow facial' },
-  { id: 'g4', title: 'Designer Gel Nail Art', category: 'Nails', desc: 'Custom floral & glitter gel extensions' }
+  { id: 'g4', title: 'Designer Gel Nail Art', category: 'Nails', desc: 'Custom floral & glitter gel extensions' },
+  { id: 'g5', title: 'Deluxe Party Glam Look', category: 'Bridal', desc: 'Dramatic party-ready eye makeup and hairstyling' },
+  { id: 'g6', title: 'Rica Wax Smooth Finish', category: 'Skin', desc: 'Full body Rica wax result — smooth, even skin' }
 ];
 
 /* State variables for Estimator */
@@ -102,6 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderTestimonials();
   renderGallery();
   initStatsObserver();
+  populateModalServiceDropdown();
+  initMobileMenuAutoClose();
 });
 
 /**
@@ -203,7 +217,7 @@ function bookCurrentEstimate() {
   const service = SERVICES_DATA.find(s => s.id === currentServiceId);
   const serviceName = service ? service.name : 'Beauty Service';
   const tierName = currentPackageTier.toUpperCase();
-  
+
   openBookingModal(`${serviceName} (${tierName} Package)`);
 }
 
@@ -224,7 +238,7 @@ function renderServicesTab(category) {
         </div>
       </div>
       <p class="service-card-desc">${service.desc}</p>
-      
+
       <div class="service-card-footer">
         <div class="service-price-tag">
           <span class="price-start-lbl">Starts at</span>
@@ -249,7 +263,7 @@ function renderServicesTab(category) {
 function selectServiceForEstimator(category, serviceId) {
   currentCategory = category;
   currentServiceId = serviceId;
-  
+
   // Activate Category Pill
   const categoryPills = document.querySelectorAll('#estimatorCategoryPills .pill-btn');
   categoryPills.forEach(b => {
@@ -292,7 +306,8 @@ function renderTestimonials() {
 }
 
 /**
- * GALLERY RENDERER
+ * GALLERY RENDERER — renders real <img> tags.
+ * Files must be placed at /images/gallery-<id>.jpg (e.g. images/gallery-g1.jpg)
  */
 function renderGallery() {
   const grid = document.getElementById('galleryGrid');
@@ -300,13 +315,12 @@ function renderGallery() {
 
   grid.innerHTML = GALLERY_DATA.map(item => `
     <div class="card gallery-card">
-      <div class="img-placeholder">
-        <div class="placeholder-content">
-          <span class="placeholder-icon">📸</span>
-          <p class="placeholder-text">[PLACEHOLDER: ${item.title}]</p>
-          <span class="placeholder-tag">${item.category} • Ratnagiri Studio</span>
-        </div>
-      </div>
+      <img
+        src="images/gallery-${item.id}.jpg"
+        alt="${item.title} — ${item.desc}"
+        class="gallery-img"
+        data-placeholder-id="gallery-${item.id}"
+      >
     </div>
   `).join('');
 }
@@ -334,10 +348,9 @@ function animateValue(elem) {
   const target = parseInt(elem.getAttribute('data-target'), 10);
   let start = 0;
   const duration = 1500;
-  const stepTime = Math.abs(Math.floor(duration / target));
-  
+
   const timer = setInterval(() => {
-    start += Math.ceil(target / 40);
+    start += Math.max(1, Math.ceil(target / 40));
     if (start >= target) {
       elem.textContent = target.toLocaleString();
       clearInterval(timer);
@@ -348,16 +361,78 @@ function animateValue(elem) {
 }
 
 /**
+ * MOBILE HAMBURGER MENU
+ */
+function toggleMobileMenu() {
+  const nav = document.getElementById('navMenu');
+  const btn = document.getElementById('hamburgerBtn');
+  if (!nav || !btn) return;
+
+  const isOpen = nav.classList.toggle('nav-open');
+  btn.classList.toggle('active', isOpen);
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+
+function initMobileMenuAutoClose() {
+  const nav = document.getElementById('navMenu');
+  if (!nav) return;
+  nav.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('nav-open');
+      const btn = document.getElementById('hamburgerBtn');
+      if (btn) {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+}
+
+/**
+ * PREFERRED SERVICE DROPDOWN — populates the Book Appointment modal's
+ * service select with every service grouped by category, plus a
+ * General Consultation fallback. If a prefilled value (e.g. from the
+ * estimator, which includes a package tier label) doesn't match any
+ * existing option, it is added as a one-off option so the selection
+ * is never lost.
+ */
+function populateModalServiceDropdown(selectedValue) {
+  const select = document.getElementById('modalService');
+  if (!select) return;
+
+  let html = '<option value="">Select a service...</option>';
+
+  Object.keys(CATEGORY_LABELS).forEach(cat => {
+    const options = SERVICES_DATA.filter(s => s.category === cat).map(s =>
+      `<option value="${s.name}">${s.name} — Starts at ₹${s.price}</option>`
+    ).join('');
+    html += `<optgroup label="${CATEGORY_LABELS[cat]}">${options}</optgroup>`;
+  });
+
+  html += '<option value="General Consultation">General Consultation / Not Sure Yet</option>';
+
+  select.innerHTML = html;
+
+  if (selectedValue) {
+    const exists = Array.from(select.options).some(o => o.value === selectedValue);
+    if (!exists) {
+      const customOpt = document.createElement('option');
+      customOpt.value = selectedValue;
+      customOpt.textContent = selectedValue;
+      select.appendChild(customOpt);
+    }
+    select.value = selectedValue;
+  }
+}
+
+/**
  * BOOKING MODAL & WHATSAPP REDIRECT LOGIC
  */
 function openBookingModal(prefilledService = '') {
   const modal = document.getElementById('bookingModal');
-  const serviceInput = document.getElementById('modalService');
-  
-  if (serviceInput && prefilledService) {
-    serviceInput.value = prefilledService;
-  }
-  
+
+  populateModalServiceDropdown(prefilledService);
+
   if (modal) modal.classList.add('active');
 }
 
@@ -374,7 +449,7 @@ function handleModalOverlayClick(e) {
 
 function handleBookingSubmit(e) {
   e.preventDefault();
-  
+
   const name = document.getElementById('modalFullName').value.trim();
   const phone = document.getElementById('modalPhone').value.trim();
   const service = document.getElementById('modalService').value.trim() || 'General Consultation';
