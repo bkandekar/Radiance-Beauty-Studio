@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radiance Beauty Studio | Beauty Parlour & Salon in Ratnagiri</title>
     <meta name="description" content="Radiance Beauty Studio - Premium beauty parlour in Ratnagiri. HD Bridal Makeup, Organic Facials, Hair Spa, Waxing & Nail Art by VLCC certified experts. Estimate your package cost online!">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
                 <span class="logo-title">Radiance Beauty Studio</span>
                 <span class="logo-tagline">Where Every Look Feels Like You</span>
             </a>
-            
+
             <nav class="nav-menu" id="navMenu">
                 <a href="#hero" class="nav-link">Home</a>
                 <a href="#services" class="nav-link">Services</a>
@@ -33,7 +33,12 @@
                 <a href="#footer" class="nav-link">Contact</a>
             </nav>
 
-            <button class="btn btn-primary pulse-btn" id="headerBookBtn" onclick="openBookingModal()">Book Appointment</button>
+            <div class="header-actions">
+                <button class="btn btn-primary pulse-btn" id="headerBookBtn" onclick="openBookingModal()">Book Appointment</button>
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -47,7 +52,7 @@
                 </div>
                 <h1 class="hero-title">Look and Feel Your Best — Every Time You Visit</h1>
                 <p class="hero-subtitle">Ratnagiri's premier destination for HD Bridal Makeup, Herbal Facials & Deep Hair Spa. Experience hygienic, 100% authentic care with completely transparent pricing.</p>
-                
+
                 <div class="hero-cta-group">
                     <button class="btn btn-primary" onclick="openBookingModal()">Book Appointment</button>
                     <a href="#estimator" class="btn btn-secondary">Estimate Package Cost</a>
@@ -69,15 +74,14 @@
                 </div>
             </div>
 
-            <!-- Right Image Placeholder -->
+            <!-- Right Image (Google Drawings — replace file in /images/hero-banner.jpg) -->
             <div class="hero-image-block">
-                <div class="img-placeholder hero-img-placeholder" data-placeholder-id="hero-image">
-                    <div class="placeholder-content">
-                        <span class="placeholder-icon">✨</span>
-                        <p class="placeholder-text">[PLACEHOLDER: Hero Image — client relaxing during a facial at salon, Google Drawings 1200x1400px]</p>
-                        <span class="placeholder-tag">Radiance Studio Salon • Shivaji Chowk</span>
-                    </div>
-                </div>
+                <img
+                    src="images/hero-banner.jpg"
+                    alt="Client relaxing during a facial treatment at Radiance Beauty Studio, Ratnagiri"
+                    class="hero-img"
+                    data-placeholder-id="hero-image"
+                >
             </div>
         </div>
     </section>
@@ -191,7 +195,7 @@
                                     <p class="tier-desc">Standard service with essential care products</p>
                                 </div>
                             </label>
-                            
+
                             <label class="tier-card card">
                                 <input type="radio" name="packageTier" value="deluxe" class="tier-radio" checked>
                                 <div class="tier-content">
@@ -232,7 +236,7 @@
     </section>
 
     <!-- SERVICES SECTION (Tab-based Switcher) -->
-    <!-- Populated by renderServices() in script.js — edit content in the SERVICES_DATA array, not here -->
+    <!-- Populated by renderServicesTab() in script.js — edit content in the SERVICES_DATA array, not here -->
     <section id="services" class="section-padding services-section">
         <div class="container">
             <div class="section-header text-center">
@@ -252,7 +256,7 @@
 
             <!-- Service Cards Container -->
             <div class="services-cards-grid" id="servicesGrid">
-                <!-- Dynamically populated by renderServices() in script.js -->
+                <!-- Dynamically populated by renderServicesTab() in script.js -->
             </div>
         </div>
     </section>
@@ -330,7 +334,7 @@
         </div>
     </section>
 
-    <!-- GALLERY SECTION -->
+    <!-- GALLERY SECTION — Populated by renderGallery() in script.js — edit content in the GALLERY_DATA array, not here -->
     <section id="gallery" class="section-padding gallery-section">
         <div class="container">
             <div class="section-header text-center">
@@ -339,7 +343,7 @@
             </div>
 
             <div class="gallery-grid" id="galleryGrid">
-                <!-- Dynamically populated by renderGallery() in script.js -->
+                <!-- Dynamically populated by renderGallery() in script.js — real <img> files go in /images/ -->
             </div>
         </div>
     </section>
@@ -413,7 +417,9 @@
 
                 <div class="form-group">
                     <label for="modalService" class="form-label">Preferred Service / Estimated Package</label>
-                    <input type="text" id="modalService" class="form-control" placeholder="e.g. Gold Facial / HD Bridal Package">
+                    <select id="modalService" class="form-control">
+                        <!-- Populated dynamically by populateModalServiceDropdown() in script.js -->
+                    </select>
                 </div>
 
                 <div class="form-group">
