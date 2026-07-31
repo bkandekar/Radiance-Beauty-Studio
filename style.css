@@ -206,7 +206,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   RULE 4 — <img> tags / PLACEHOLDER SYSTEM
+   RULE 4 — IMAGE SYSTEM (real <img> tags — Google Drawings exports go in /images/)
    ========================================================================== */
 .img-placeholder {
     width: 100%;
@@ -243,6 +243,16 @@ a:hover {
     color: var(--color-rose-gold);
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.hero-img,
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+    background-color: var(--color-light-rose-container);
+    display: block;
 }
 
 /* ==========================================================================
@@ -297,6 +307,47 @@ a:hover {
     color: var(--color-rose-gold);
 }
 
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Hamburger button — hidden on desktop, shown at mobile breakpoint */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 34px;
+    height: 34px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger-btn span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-deep-plum);
+    border-radius: 2px;
+    transition: var(--transition-standard);
+}
+
+.hamburger-btn.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 /* ==========================================================================
    HERO SECTION
    ========================================================================== */
@@ -306,7 +357,7 @@ a:hover {
 
 .hero-container {
     display: grid;
-    grid-template-columns: 1.1f 0.9fr;
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 24px;
 }
 
@@ -385,10 +436,6 @@ a:hover {
 .hero-image-block {
     display: flex;
     align-items: center;
-}
-
-.hero-img-placeholder {
-    height: 100%;
     min-height: 380px;
 }
 
@@ -863,7 +910,7 @@ a:hover {
     overflow: hidden;
 }
 
-.gallery-card .img-placeholder {
+.gallery-card .gallery-img {
     height: 220px;
     border-radius: var(--radius-card);
 }
@@ -1026,7 +1073,7 @@ a:hover {
         grid-template-columns: 1fr;
     }
 
-    .hero-img-placeholder {
+    .hero-image-block {
         min-height: 240px;
     }
 
@@ -1040,8 +1087,38 @@ a:hover {
 }
 
 @media (max-width: 600px) {
+    .hamburger-btn {
+        display: flex;
+    }
+
     .nav-menu {
-        display: none; /* Can be toggled if needed */
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background-color: var(--color-light-ivory);
+        border-bottom: 1px solid var(--color-muted-rose-border);
+        box-shadow: var(--shadow-medium);
+    }
+
+    .nav-menu.nav-open {
+        display: flex;
+    }
+
+    .nav-menu .nav-link {
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--color-light-rose-container);
+    }
+
+    .sticky-header {
+        position: sticky;
+    }
+
+    .header-container {
+        position: relative;
     }
 
     .section-title {
