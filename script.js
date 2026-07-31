@@ -90,7 +90,7 @@ const TESTIMONIALS_DATA = [
   }
 ];
 
-/* GALLERY_DATA — 6 items. Each renders an <img src="images/gallery-<id>.jpg">
+/* GALLERY_DATA — 6 items. Each renders an <img src="images/gallery-<id>.webp">
    Drop your Google Drawings export into /images/ using the exact filename shown below. */
 const GALLERY_DATA = [
   { id: 'g1', title: 'HD Bridal Makeup Look', category: 'Bridal', desc: 'Flawless water-resistant HD bridal makeover' },
@@ -306,8 +306,8 @@ function renderTestimonials() {
 }
 
 /**
- * GALLERY RENDERER — renders real <img> tags.
- * Files must be placed at /images/gallery-<id>.jpg (e.g. images/gallery-g1.jpg)
+ * GALLERY RENDERER — renders real <img> webp.
+ * Files must be placed at /images/gallery-<id>.jpg (e.g. images/gallery-g1.webp)
  */
 function renderGallery() {
   const grid = document.getElementById('galleryGrid');
@@ -316,7 +316,7 @@ function renderGallery() {
   grid.innerHTML = GALLERY_DATA.map(item => `
     <div class="card gallery-card">
       <img
-        src="images/gallery-${item.id}.jpg"
+        src="images/gallery-${item.id}.webp"
         alt="${item.title} — ${item.desc}"
         class="gallery-img"
         data-placeholder-id="gallery-${item.id}"
